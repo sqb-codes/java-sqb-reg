@@ -1,0 +1,30 @@
+Object Oriented Programming:
+Class
+Object
+Methods
+Inheritance
+Data Abastraction
+Encapsulation
+
+
+Salary Slip Requirement
+EmpID:
+EmpName:
+EmpDept:
+Leave:
+Basic Salary:
+
+Allowances:
+HRA = 30% of Basic Salary
+DA = 15% of Basic Salary
+TA = 20% of Basic Salary
+MA = 15% of Basic Salary
+
+Deductions:
+PF = 10%
+TDS = 10%
+
+Gross Salary = Basic + HRA + DA + TA + MA
+Deductions = PF + TDS
+Net Salary = Gross Salary - PF - TDS
+

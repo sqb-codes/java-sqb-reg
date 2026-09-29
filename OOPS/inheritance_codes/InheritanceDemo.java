@@ -1,7 +1,9 @@
 package OOPS.inheritance_codes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Loan {
-    // TODO: Describe the behavior when we change the access specifier from public to something else
     public void docVerification() {
         System.out.println("Document verification required");
     }
@@ -42,25 +44,46 @@ class PersonalLoan extends Loan {
 
 
 public class InheritanceDemo {
+
+    public static void caller(Loan loan) {
+        loan.docVerification();
+        loan.checkCreditScore();
+        if(loan instanceof EduLoan) {
+            EduLoan eduLoan = (EduLoan)loan;
+            eduLoan.validateDegree();
+        } else if (loan instanceof VehicleLoan) {
+            VehicleLoan vehicleLoan = (VehicleLoan) loan;
+            vehicleLoan.validateDL();
+        }
+    }
+
     public static void main(String[] args) {
-        EduLoan eduLoan = new EduLoan();
+        // EduLoan eduLoan = new EduLoan();
+        // List<Integer> list = new ArrayList<>();
+        // Take parent class as type and create object of child class
+        // LSP - Liskov Substitution Principle
+        Loan loan = new EduLoan();
         System.out.println("Applied for Edu Loan");
-        eduLoan.docVerification(); // Loan class
-        eduLoan.checkCreditScore(); // Overrided
-        eduLoan.validateDegree(); // Self method
+        caller(loan);
+        // loan.docVerification(); // Loan class
+        // loan.checkCreditScore(); // Overrided
+        // loan.validateDegree(); // Self method
 
         System.out.println("=======================");
 
-        VehicleLoan vehicleLoan = new VehicleLoan();
+        // VehicleLoan vehicleLoan = new VehicleLoan();
+        loan = new VehicleLoan();
         System.out.println("Applied for Vehicle Loan");
-        vehicleLoan.docVerification(); // Overrided
-        vehicleLoan.checkCreditScore(); // Loan class
-        vehicleLoan.validateDL(); // Self method
+        caller(loan);
+        // loan.docVerification(); // Overrided
+        // loan.checkCreditScore(); // Loan class
+        // loan.validateDL(); // Self method
 
         System.out.println("=======================");
-        PersonalLoan personalLoan = new PersonalLoan();
-        personalLoan.checkCreditScore();
-        personalLoan.docVerification();
-        // TODO: How can we make checkCreditScore and docVerification reusable call
+        // PersonalLoan personalLoan = new PersonalLoan();
+        loan = new PersonalLoan();
+        caller(loan);
+        // loan.checkCreditScore();
+        // loan.docVerification();
     }
 }

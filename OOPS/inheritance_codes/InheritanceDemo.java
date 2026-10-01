@@ -3,7 +3,8 @@ package OOPS.inheritance_codes;
 import java.util.ArrayList;
 import java.util.List;
 
-class Loan {
+// You cannot create Object of any abstract class
+abstract class Loan {
     public void docVerification() {
         System.out.println("Document verification required");
     }
@@ -58,6 +59,9 @@ public class InheritanceDemo {
     }
 
     public static void main(String[] args) {
+
+        // Loan obj = new Loan();
+
         // EduLoan eduLoan = new EduLoan();
         // List<Integer> list = new ArrayList<>();
         // Take parent class as type and create object of child class
